@@ -56,8 +56,7 @@
 				<version>3.10.1</version>
 				<!-- References to interface static methods are allowed only at source level 1.8 or above -->
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					 <release>11</release>
 				</configuration>
 			</plugin>
 			<!-- Below plugin to run Test NG -->
