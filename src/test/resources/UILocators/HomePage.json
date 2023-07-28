@@ -1,0 +1,7 @@
+{
+	"username" : "//input[@name='username']",
+	"password" : "//input[@name='password']",
+	"login" : "//button[text()=' Login ']",
+	"forgetpassword" : "//p[text()='Forgot your password? ']"
+	
+}

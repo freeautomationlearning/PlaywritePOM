@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="RegressionTest" parallel="tests" thread-count="2">
+	<listeners>
+		<listener
+			class-name="com.freeautomationlearning.listeners.TestListeners" />
+	</listeners>
+	<test name="QA" verbose="2">
+		<classes>
+			<class
+				name="com.freeautomationlearning.api.testscripts.UserDetailsTestScript"></class>
+		</classes>
+	</test>
+	<test name="DEV" verbose="2">
+		<classes>
+			<class
+				name="com.freeautomationlearning.api.testscripts.UserDetailsTestScript"></class>
+		</classes>
+	</test>
+</suite>

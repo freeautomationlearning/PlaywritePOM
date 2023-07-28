@@ -1,0 +1,4 @@
+{
+	"logouttab":".oxd-userdropdown-tab",
+	"logoutlink":"//a[text()='Logout']"
+}
