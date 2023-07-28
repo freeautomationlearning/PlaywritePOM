@@ -26,7 +26,6 @@ public class BaseUITest extends UIFactoryBaseImplementation{
 	public void openBrowser(@Optional("chrome") String browsername)
 	{
 		utilClass = new UtilClass();
-		ExtentReportManager.logMessage(Status.INFO, "Browser Name : "+browsername);
 		invokeBrowser(browsername, utilClass.getConfigValue("url"));
 		homePage = new HomePage(getPageInstance());
 	}
