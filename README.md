@@ -2,7 +2,7 @@
 # Playwright Framework
 
 I have designed a Framework which supports POM design pattern for UI and API testing.
-This Framework is using Playwright automation library for UI and API test automation.   
+This Framework is using Playwright automation library for UI and API test automation. For reporting we are using Extent Report.   
 
 
 ## Installation
