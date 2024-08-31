@@ -1,13 +1,13 @@
-package com.freeautomationlearning.testscripts;
+package com.freeautomationlearning.ui.testscripts;
 
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.freeautomationlearning.base.BaseUITest;
-import com.freeautomationlearning.pages.DashboardPage;
-import com.freeautomationlearning.pages.HomePage;
-import com.freeautomationlearning.pages.ResetPassword;
+import com.freeautomationlearning.ui.pages.DashboardPage;
+import com.freeautomationlearning.ui.pages.HomePage;
+import com.freeautomationlearning.ui.pages.ResetPassword;
 
 /**
  * @author chirag.s

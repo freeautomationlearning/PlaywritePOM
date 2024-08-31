@@ -1,4 +1,4 @@
-package com.freeautomationlearning.pages;
+package com.freeautomationlearning.ui.pages;
 
 
 import com.freeautomationlearning.base.ui.UIFactoryPageHelperImplementation;

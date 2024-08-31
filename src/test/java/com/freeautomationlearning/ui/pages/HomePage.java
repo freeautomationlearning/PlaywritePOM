@@ -1,8 +1,7 @@
-package com.freeautomationlearning.pages;
+package com.freeautomationlearning.ui.pages;
 
 
 import com.freeautomationlearning.base.ui.UIFactoryPageHelperImplementation;
-import com.freeautomationlearning.reports.ExtentReportManager;
 import com.freeautomationlearning.utlis.UtilClass;
 import com.microsoft.playwright.Page;
 

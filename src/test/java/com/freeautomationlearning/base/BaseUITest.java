@@ -5,10 +5,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import com.aventstack.extentreports.Status;
 import com.freeautomationlearning.base.ui.UIFactoryBaseImplementation;
-import com.freeautomationlearning.pages.HomePage;
-import com.freeautomationlearning.reports.ExtentReportManager;
+import com.freeautomationlearning.ui.pages.HomePage;
 import com.freeautomationlearning.utlis.UtilClass;
 
 
