@@ -9,6 +9,8 @@
 		<classes>
 			<class
 				name="com.freeautomationlearning.api.testscripts.UserDetailsTestScript"></class>
+			<class
+					name="com.freeautomationlearning.api.testscripts.LoginTestScript"></class>
 		</classes>
 	</test>
 	<test name="DEV" verbose="2">
