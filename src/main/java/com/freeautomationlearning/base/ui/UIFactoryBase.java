@@ -13,4 +13,6 @@ public interface UIFactoryBase {
 	public Page getPageInstance();
 
 	public void setPageInstance(Page pageValue);
+
+	public void closeBrowser();
 }

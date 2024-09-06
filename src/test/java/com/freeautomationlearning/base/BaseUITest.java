@@ -1,13 +1,16 @@
 package com.freeautomationlearning.base;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import com.aventstack.extentreports.Status;
+import com.freeautomationlearning.reports.ExtentReportManager;
+import org.testng.ITestResult;
+import org.testng.Reporter;
+import org.testng.annotations.*;
 
 import com.freeautomationlearning.base.ui.UIFactoryBaseImplementation;
 import com.freeautomationlearning.ui.pages.HomePage;
 import com.freeautomationlearning.utlis.UtilClass;
+
+import java.lang.reflect.Method;
 
 
 /**
@@ -15,23 +18,27 @@ import com.freeautomationlearning.utlis.UtilClass;
  *
  */
 public class BaseUITest extends UIFactoryBaseImplementation{
-	
-	public HomePage homePage;
+
 	public UtilClass utilClass;
-	
-	@BeforeClass
+
+	@BeforeMethod
 	@Parameters({"browserType" })
-	public void openBrowser(@Optional("chrome") String browsername)
+	public void openBrowser(@Optional("chrome") String browsername, ITestResult result)
 	{
+		ExtentReportManager.createTest(result.getMethod().getMethodName());
 		utilClass = new UtilClass();
 		invokeBrowser(browsername, utilClass.getConfigValue("url"));
-		homePage = new HomePage(getPageInstance());
 	}
 	
-	@AfterClass
-	public void closeBrowser()
+	@AfterMethod
+	public void closeBrowserWindow()
 	{
-		getPageInstance().context().browser().close();
+		try{
+			closeBrowser();
+			ExtentReportManager.logMessage(Status.PASS,"Browser is closed sucessfully");
+		}catch (Exception e)
+		{
+			ExtentReportManager.logMessage(Status.FAIL,"Browser is not closed sucessfully Exception ::"+e.getMessage());
+		}
 	}
-	
 }

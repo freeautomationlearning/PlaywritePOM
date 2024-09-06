@@ -2,6 +2,7 @@ package com.freeautomationlearning.api.testscripts;
 
 import java.util.Map;
 
+import com.freeautomationlearning.api.pages.Users;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -19,6 +20,8 @@ public class UserDetailsTestScript extends BaseAPITest{
 	@Test
 	public void verifyUserDetails()
 	{
+		ExtentReportManager.getExtentTestInstance().assignCategory("API");
+		Users user = new Users(getRequestInstance());
 		Map<String, String> details = user.verifyUserNameDetails("2");
 		Assert.assertEquals(utilClass.getResponseStatus(), APIConstants.OK);
 		ExtentReportManager.logMessage(Status.INFO, "Expected Result : Michael"+" || Actual Result : "+details.get("firstName"));
@@ -30,6 +33,8 @@ public class UserDetailsTestScript extends BaseAPITest{
 	@Test
 	public void verifyUsersDetails()
 	{
+		ExtentReportManager.getExtentTestInstance().assignCategory("API");
+		Users user = new Users(getRequestInstance());
 		Map<String, String> details = user.verifyUserNameDetails("1");
 		Assert.assertEquals(utilClass.getResponseStatus(), APIConstants.OK);
 		Assert.assertEquals(details.get("firstName"), "George", "First Name is not matching");
@@ -39,6 +44,8 @@ public class UserDetailsTestScript extends BaseAPITest{
 	@Test
 	public void verifyUserCreate()
 	{
+		ExtentReportManager.getExtentTestInstance().assignCategory("API");
+		Users user = new Users(getRequestInstance());
 		Integer userStatus = user.createUser();
 		Assert.assertEquals(utilClass.getResponseStatus(), APIConstants.CREATED);
 		Assert.assertEquals(userStatus, APIConstants.CREATED, "User create is not created");

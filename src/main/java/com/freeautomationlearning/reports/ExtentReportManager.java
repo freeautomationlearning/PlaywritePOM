@@ -10,6 +10,8 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.CodeLanguage;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.aventstack.extentreports.reporter.configuration.ViewName;
 import com.freeautomationlearning.base.ui.UIFactoryBaseImplementation;
 import com.freeautomationlearning.base.utilty.UtilityBaseImplementation;
 import com.microsoft.playwright.Page;
@@ -25,12 +27,22 @@ public class ExtentReportManager{
 	
 	public static void initReports() {
 		// TODO Auto-generated method stub
-		ExtentReports extent = new ExtentReports();
-		String reportName = new UtilityBaseImplementation().generateCurrentDateandTime("dd_MM_yyyy_HH_mm_ss");
-        ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark/Spark_"+reportName+".html");
-//		  ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark/Spark.html");
-		extent.attachReporter(spark);
-        setExtentInstance(extent);
+		if(getExtentInstance()==null)
+		{
+			ExtentReports extent = new ExtentReports();
+			String reportName = new UtilityBaseImplementation().generateCurrentDateandTime("dd_MM_yyyy_HH_mm_ss");
+			ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark/Spark_"+reportName+".html");
+			spark.config().setReportName("Automation Report");
+			spark.config().setTheme(Theme.STANDARD);
+			spark.config().setDocumentTitle("Automation Report");
+
+			extent.attachReporter(spark);
+			extent.setSystemInfo("OS NAME", System.getProperty("os.name"));
+			extent.setSystemInfo("OS VERSION", System.getProperty("os.version"));
+			extent.setSystemInfo("User Name",System.getProperty("user.name"));
+			extent.setSystemInfo("Java Version",System.getProperty("java.version"));
+			setExtentInstance(extent);
+		}
 	}
 
 	public static ExtentTest getExtentTestInstance() {
@@ -60,21 +72,9 @@ public class ExtentReportManager{
 		setExtentTestInstance(test);
 	}
 	
-	public static void logMessage(Status status,String testName)
+	public static void logMessage(Status status,String testStepDescription)
 	{
-		if(status==Status.FAIL)
-		{
-			addScreenshot();
-		}
-		if(getExtentTestInstance()==null)
-		{
-	//		ExtentTest test = getExtentInstance().createTest("test");
-	//		test.log(Status.INFO, testName);
-		}else
-		{
-			getExtentTestInstance().log(status, testName);
-		}
-		
+		getExtentTestInstance().log(status, testStepDescription);
 	}
 	
 	public static void addScreenshot()
@@ -87,9 +87,6 @@ public class ExtentReportManager{
 //			obj.getPageInstance().screenshot(new Page.ScreenshotOptions().setPath(Paths.get("target/screenshot/Screenshot"+screenshotName+".png")));
 			obj.getPageInstance().screenshot(new Page.ScreenshotOptions().setPath(Paths.get("target/Spark/Screenshot"+screenshotName+".png")));
 			String path = file.getAbsolutePath();
-			//System.out.println("PATH :: "+path);
-//			Thread.sleep(1000);
-//			getExtentTestInstance().info(MediaEntityBuilder.createScreenCaptureFromPath(path).build());
 			getExtentTestInstance().info(MediaEntityBuilder.createScreenCaptureFromPath("Screenshot"+screenshotName+".png").build());
 		} catch (Exception e) {
 			//e.printStackTrace();

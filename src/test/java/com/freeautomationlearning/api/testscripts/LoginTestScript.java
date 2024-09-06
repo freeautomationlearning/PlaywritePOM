@@ -16,6 +16,7 @@ public class LoginTestScript extends BaseAPITest {
 
     @Test
     public void verifyLogin() {
+        ExtentReportManager.getExtentTestInstance().assignCategory("API");
         loginPage = new LoginPage(getRequestInstance());
         int loginStatus = loginPage.loginUser();
 

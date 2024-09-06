@@ -1,11 +1,6 @@
 package com.freeautomationlearning.listeners;
 
-import org.testng.IInvokedMethod;
-import org.testng.IInvokedMethodListener;
-import org.testng.ISuite;
-import org.testng.ISuiteListener;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
+import org.testng.*;
 
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
@@ -34,45 +29,51 @@ public class TestListeners implements ITestListener, ISuiteListener, IInvokedMet
     @Override
     public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
         // After every method in the Test Class
-        //System.out.println(method.getTestMethod().getMethodName());
-    	if(testResult.getStatus()==ITestResult.FAILURE)
+
+/*    	if(testResult.getStatus()==ITestResult.FAILURE)
     	{
-//    		ExtentReportManager.addScreenshot();
-    	}
+    		ExtentReportManager.addScreenshot();
+    	} */
     }
 
     @Override
     public void onStart(ISuite iSuite) {
+        //Start Suite and create Extents Report instance
         ExtentReportManager.initReports();
     }
 
     @Override
     public void onFinish(ISuite iSuite) {
         
-        //End Suite and execute Extents Report
+        //End Suite and generate Extents Report
         ExtentReportManager.flushReports();
     }
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
-        
-    	ExtentReportManager.createTest(iTestResult.getName());
-
+        // You want to invoke browser for before Class then for Extent log uncomment below code
+        // 	ExtentReportManager.createTest(iTestResult.getMethod().getMethodName());
     }
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-        //ExtentReports log operation for passed tests.
-    //	ExtentReportManager.addScreenshot();
-     //   ExtentReportManager.logMessage(Status.PASS, "Test case: " + getTestName(iTestResult) + " is passed.");
+        //ExtentReports log operation for passed tests. Uncomment if required
+    /*	ExtentReportManager.addScreenshot();
+        ExtentReportManager.logMessage(Status.PASS, "Test case: " + getTestName(iTestResult) + " is passed.");
+    */
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult result) {
+        ExtentReportManager.logMessage(Status.SKIP, result.getThrowable().toString());
     }
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-      
-        //Extent report screenshot file and log
-    //    ExtentReportManager.addScreenshot();
-       // ExtentReportManager.logMessage(Status.FAIL, iTestResult.getThrowable().toString());
+        ExtentReportManager.logMessage(Status.FAIL, iTestResult.getThrowable().toString());
+        ExtentReportManager.addScreenshot();
+        // Uncomment below code if you want to add category by error
+   //     ExtentReportManager.getExtentTestInstance().assignCategory(iTestResult.getThrowable().toString());
 
     }
 }

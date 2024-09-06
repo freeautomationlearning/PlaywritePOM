@@ -23,6 +23,7 @@ public class APIFactoryPageHelperImplementation implements APIFactoryPageHelper{
 	public void httpsMethod(APIRequestContext request,String uri,String methodName, RequestOptions requestOptions) {
 		
 		APIResponse response = null;
+
 		switch (methodName.toLowerCase()) {
 		case "get":
 			response = request.get(uri, requestOptions);
@@ -50,7 +51,7 @@ public class APIFactoryPageHelperImplementation implements APIFactoryPageHelper{
 	public void setResonseInstance(APIResponse response) {
 		// TODO Auto-generated method stub
 		this.response.set(response);
-		//ExtentReportManager.logMessage(Status.INFO, "RESPONSE : "+response.text());
+		ExtentReportManager.logMessage(Status.INFO, "RESPONSE : "+response.text());
 	}
 
 	@Override
@@ -58,7 +59,6 @@ public class APIFactoryPageHelperImplementation implements APIFactoryPageHelper{
 		// TODO Auto-generated method stub
 		DocumentContext jsonObject = JsonPath.parse(getResonseInstance().text());
 		String textResult = jsonObject.read(jsonPath).toString();
-		//System.out.println(textResult);
 		return textResult;
 	}
 	

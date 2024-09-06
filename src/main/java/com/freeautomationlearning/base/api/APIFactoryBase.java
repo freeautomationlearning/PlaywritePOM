@@ -23,5 +23,8 @@ public interface APIFactoryBase {
 	public void setPlayWrightInstance(Playwright playWright);
 	
 	public NewContextOptions createContextOptions();
-	
+
+	public NewContextOptions getNewContextOptionsInstance();
+
+	public void setNewContextOptionsInstance(NewContextOptions contextOptions);
 }

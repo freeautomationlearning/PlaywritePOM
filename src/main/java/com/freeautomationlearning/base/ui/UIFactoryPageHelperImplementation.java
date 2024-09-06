@@ -45,7 +45,7 @@ public class UIFactoryPageHelperImplementation implements UIFactoryPageHelper{
 			page.waitForSelector(loctor,new WaitForSelectorOptions().setTimeout(timeoutSecond*1000));
 		} catch (Exception e) {
 			// TODO: handle exception
-			ExtentReportManager.logMessage(Status.FAIL, e.getMessage());
+		//	ExtentReportManager.logMessage(Status.FAIL, e.getMessage());
 			Assert.fail(e.getMessage());
 		}
 		

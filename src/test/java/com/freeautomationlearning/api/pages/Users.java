@@ -15,13 +15,11 @@ public class Users extends APIFactoryPageHelperImplementation{
 
 	APIRequestContext request;
 	UtilClass utilClass;
-	ExtentReportManager reporter;
 	
 	public Users(APIRequestContext request)
 	{
 		this.request = request;
 		utilClass = new UtilClass();
-		reporter = new ExtentReportManager();
 	}
 	
 	public Map<String, String> verifyUserNameDetails(String page)
@@ -46,7 +44,6 @@ public class Users extends APIFactoryPageHelperImplementation{
 		RequestOptions requestOptions =  createRequestOptions();
 		setBody(userBody);
 		httpsMethod(request, uri, "post", requestOptions);
-		System.out.println(getResonseInstance().text());
 		return getResonseInstance().status();
 	}
 	

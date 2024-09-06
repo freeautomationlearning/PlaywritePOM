@@ -14,7 +14,7 @@ public class APIFactoryBaseImplementation implements APIFactoryBase{
 
 	public static ThreadLocal<APIRequestContext> request = new InheritableThreadLocal<APIRequestContext>();
 	public static ThreadLocal<Playwright> playWright = new InheritableThreadLocal<Playwright>();
-	
+	public static ThreadLocal<NewContextOptions> contextOptions = new InheritableThreadLocal<NewContextOptions>();
 	@Override
 	public APIRequestContext invokeAPI(NewContextOptions contextOptions) {
 		// TODO Auto-generated method stub
@@ -49,6 +49,18 @@ public class APIFactoryBaseImplementation implements APIFactoryBase{
 	}
 
 	@Override
+	public NewContextOptions getNewContextOptionsInstance() {
+		// TODO Auto-generated method stub
+		return contextOptions.get();
+	}
+
+	@Override
+	public void setNewContextOptionsInstance(NewContextOptions contextOption) {
+		// TODO Auto-generated method stub
+		this.contextOptions.set(contextOption);
+	}
+
+	@Override
 	public Playwright getPlayWrightInstance() {
 		// TODO Auto-generated method stub
 		return playWright.get();
@@ -59,7 +71,6 @@ public class APIFactoryBaseImplementation implements APIFactoryBase{
 		// TODO Auto-generated method stub
 		this.playWright.set(playWright);
 	}
-
 	@Override
 	public NewContextOptions createContextOptions() {
 		// TODO Auto-generated method stub
