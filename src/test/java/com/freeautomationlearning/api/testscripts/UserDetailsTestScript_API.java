@@ -4,7 +4,6 @@ import java.util.Map;
 
 import com.freeautomationlearning.api.pages.Users;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -14,7 +13,7 @@ import com.freeautomationlearning.reports.ExtentReportManager;
 import com.freeautomationlearning.utlis.APIConstants;
 
 @Listeners(com.freeautomationlearning.listeners.TestListeners.class)
-public class UserDetailsTestScript extends BaseAPITest{
+public class UserDetailsTestScript_API extends BaseAPITest{
 
 	
 	@Test

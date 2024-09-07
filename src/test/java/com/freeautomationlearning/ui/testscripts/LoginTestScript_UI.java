@@ -16,7 +16,7 @@ import com.freeautomationlearning.ui.pages.ResetPassword;
  *
  */
 @Listeners(com.freeautomationlearning.listeners.TestListeners.class)
-public class LoginTestScript extends BaseUITest{
+public class LoginTestScript_UI extends BaseUITest{
 
 	@Test(priority = 1)
 	public void loginTest()

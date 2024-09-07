@@ -9,14 +9,14 @@
 		<parameter name="browserType" value="chrome"></parameter>
 		<classes>
 			<class
-				name="com.freeautomationlearning.ui.testscripts.LoginTestScript"></class>
+				name="com.freeautomationlearning.ui.testscripts.LoginTestScript_UI"></class>
 		</classes>
 	</test>
 	<test name="Firefox" verbose="2">
 		<parameter name="browserType" value="firefox"></parameter>
 		<classes>
 			<class
-				name="com.freeautomationlearning.ui.testscripts.LoginTestScript"></class>
+				name="com.freeautomationlearning.ui.testscripts.LoginTestScript_UI"></class>
 		</classes>
 	</test>
 </suite>

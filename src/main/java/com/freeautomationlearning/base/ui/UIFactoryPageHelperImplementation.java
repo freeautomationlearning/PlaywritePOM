@@ -45,10 +45,8 @@ public class UIFactoryPageHelperImplementation implements UIFactoryPageHelper{
 			page.waitForSelector(loctor,new WaitForSelectorOptions().setTimeout(timeoutSecond*1000));
 		} catch (Exception e) {
 			// TODO: handle exception
-		//	ExtentReportManager.logMessage(Status.FAIL, e.getMessage());
 			Assert.fail(e.getMessage());
 		}
-		
 		return page.locator(loctor);
 	}
 
@@ -62,7 +60,6 @@ public class UIFactoryPageHelperImplementation implements UIFactoryPageHelper{
 			}else {
 				ExtentReportManager.logMessage(Status.FAIL, locatorName+" is not displayed on the page sucessfully.");
 			}
-			
 			return flag;
 		} catch (Exception e) {
 			e.printStackTrace();

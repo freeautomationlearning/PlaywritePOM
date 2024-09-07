@@ -8,15 +8,15 @@
 	<test name="QA" verbose="2">
 		<classes>
 			<class
-				name="com.freeautomationlearning.api.testscripts.UserDetailsTestScript"></class>
+				name="com.freeautomationlearning.api.testscripts.UserDetailsTestScript_API"></class>
 			<class
-					name="com.freeautomationlearning.api.testscripts.LoginTestScript"></class>
+					name="com.freeautomationlearning.api.testscripts.LoginTestScript_API"></class>
 		</classes>
 	</test>
 	<test name="DEV" verbose="2">
 		<classes>
 			<class
-				name="com.freeautomationlearning.api.testscripts.UserDetailsTestScript"></class>
+				name="com.freeautomationlearning.api.testscripts.UserDetailsTestScript_API"></class>
 		</classes>
 	</test>
 </suite>

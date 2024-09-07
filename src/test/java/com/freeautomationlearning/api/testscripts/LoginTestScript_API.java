@@ -10,7 +10,7 @@ import com.freeautomationlearning.reports.ExtentReportManager;
 import com.freeautomationlearning.utlis.APIConstants;
 
 @Listeners(com.freeautomationlearning.listeners.TestListeners.class)
-public class LoginTestScript extends BaseAPITest {
+public class LoginTestScript_API extends BaseAPITest {
 
     LoginPage loginPage;
 
